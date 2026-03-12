@@ -26,25 +26,29 @@ public class ModelDialog {
             try {
                 if(choice == 1){
                     scanner.nextLine();
-                    System.out.println("Name: ");
+                    System.out.println("Enter a Name: ");
                     String name = scanner.nextLine();
-                    System.out.println("PricePerDay: ");
+                    System.out.println("Enter a PricePerDay: ");
                     int pricePerDay = scanner.nextInt();
+                    System.out.println("New model created with name " + name +
+                            " and your price per day is " + pricePerDay);
                     modelController.add(name, pricePerDay);
                 } else if (choice == 2) {
                     System.out.println("Model ID: ");
-                    int id = scanner.nextInt();
-                    modelController.deleteById((long) id);
+                    Long id = scanner.nextLong();
+                    modelController.deleteById(id);
                 } else if (choice == 3) {
                     System.out.println(modelController.findAll());
-                    System.out.println("Model ID: ");
-                    int id = scanner.nextInt();
+                    System.out.println("Model ID to modify: ");
+                    Long id = scanner.nextLong();
                     scanner.nextLine();
-                    System.out.println("Name: ");
+                    System.out.println("Enter new Name: ");
                     String name = scanner.nextLine();
-                    System.out.println("PricePerDay: ");
+                    System.out.println("Enter new PricePerDay: ");
                     int pricePerDay = scanner.nextInt();
-                    modelController.update((long) id, name, pricePerDay);
+                    System.out.println("Model with id " + id + " has been updated with name " + name +
+                            " and price per day " + pricePerDay);
+                    modelController.update(id, name, pricePerDay);
                 } else if (choice == 4) {
                     scanner.nextLine();
                     System.out.println("Id: ");
